@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Bus Reservation System</title>
+</head>
+
+
+<header class="header">
+    <h1 class="logo"><a href="{% url 'home' %}" style="font-family:verdana" > AAA Travel Agency </a></h1>
+  <ul class="main-nav">
+      <li><a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+      <li><a class="nav-item nav-link" href="{% url 'findbus' %}">Find Bus</a></li>
+      <li><a class="nav-item nav-link" href="{% url 'seebookings' %}">See Bookings</a></li>
+      {% if request.user.is_active %}
+      <li><a class="nav-item nav-link" href="{% url 'aboutus' %}">About Us</a></li>
+            <li><a  class="nav-item nav-link " href="{% url 'signout' %}">Sign out</a></li>
+      {% else %}
+      <li><a class="nav-item nav-link " href="{% url 'signup' %}">Sign Up</a></li>
+      {% endif %}
+  </ul>
+</header> 
+<style>
+    * {
+box-sizing: border-box;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+line-height: 1.6;
+margin: 0;
+min-height: 100vh;
+}
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+
+h2,
+h3,
+a {
+color: #005136;
+}
+
+a {
+text-decoration: none;
+}
+
+
+
+.logo {
+margin: 0;
+font-size: 1.45em;
+}
+
+.main-nav {
+margin-top: 5px;
+
+}
+.logo a,
+.main-nav a {
+padding: 10px 15px;
+text-transform: uppercase;
+text-align: center;
+display: block;
+}
+
+.main-nav a {
+color: #005136;
+font-size: .99em;
+}
+
+.main-nav a:hover {
+color: rgb(6, 98, 134);
+}
+
+
+
+.header {
+padding-top: .5em;
+padding-bottom: .5em;
+border: 1px solid #00D76D;
+background-color: #00D76D;
+-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+
+/* ================================= 
+Media Queries
+==================================== */
+
+
+
+
+@media (min-width: 769px) {
+.header,
+.main-nav {
+    display: flex;
+}
+.header {
+    flex-direction: column;
+    align-items: center;}
+    .header{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1150px;
+}
+}
+
+@media (min-width: 1025px) {
+.header {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+}
+
+</style>
+
+
+    
+{% block content %}
+{% endblock %}
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<!-- <h2>Booking Confirmation</h2> -->
+<form action="{% url 'home' %}" method="post">
+
+    {% csrf_token %}
+    <!-- <h2>Your booking has been confirmed!</h2>
+    <h2>Thank you!</h2> -->
+    <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+  </head>
+    <style>
+      body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+      }
+        h1 {
+          color: #88B04B;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #404F5E;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-size:20px;
+          margin: 0;
+        }
+      i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left:-15px;
+      }
+      .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+      }
+    </style>
+    <body>
+      <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div>
+        <h1>Success</h1> 
+        <p>Booking Successful<br/>Happy Journey!!</p>
+      </div>
+    </body>
+
+    <h3>Bill details</h3>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        Bill details
+    </button>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary float-right">OK</button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">BOOKING DETAILS</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Bus name:</b> {{book.bus_name}}</li>
+                        <li class="list-group-item"><b>Starting point:</b> {{book.source}}</li>
+                        <li class="list-group-item"><b>Destination point:</b> {{book.dest}}</li>
+                        <li class="list-group-item"><b>Number of seats:</b> {{book.nos}}</li>
+                        <li class="list-group-item"><b>Price:</b> {{book.price}}</li>
+                        <li class="list-group-item"><b>Cost:</b> {{cost}}</li>
+                        <li class="list-group-item"><b>Date:</b> {{book.date}}</li>
+                        <li class="list-group-item"><b>Time:</b> {{book.time}}</li>
+                    </ul>
+
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+</html>
+
+{% endblock %}
